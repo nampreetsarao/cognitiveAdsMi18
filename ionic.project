@@ -1,0 +1,10 @@
+{
+  "name": "proxy-example",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api/v1/workspaces/796b4d1f-2d3d-4544-a408-30ed9b1e2a1c/message?version=2017-05-26",
+      "proxyUrl": "https://gateway.watsonplatform.net/conversation/"
+    }
+  ]
+}

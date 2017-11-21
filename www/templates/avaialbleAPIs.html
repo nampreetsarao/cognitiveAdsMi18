@@ -1,0 +1,72 @@
+<ion-view title="Cognitive Advertisement" id="page2"  cache-view="false">
+
+
+  <div ng-controller="avaialbleAPIsCtrl as controller">
+
+
+	<div class="videogular-container" class="fixed-header my-video">
+<toaster-container></toaster-container>
+		<videogular vg-player-ready="controller.onPlayerReady($API)" vg-theme="controller.config.theme"
+      data-vg-update-time="getFeatures($currentTime,$duration)">
+			<vg-media vg-src="controller.config.sources"
+					  vg-tracks="controller.config.tracks">
+			</vg-media>
+
+			<vg-controls>
+				<vg-play-pause-button></vg-play-pause-button>
+				<vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+				<vg-scrub-bar>
+					<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+				</vg-scrub-bar>
+				<vg-time-display>{{ timeLeft | date:'mm:ss':'+0000'}}</vg-time-display>
+				<vg-volume>
+					<vg-mute-button></vg-mute-button>
+					<vg-volume-bar></vg-volume-bar>
+				</vg-volume>
+				<vg-fullscreen-button></vg-fullscreen-button>
+			</vg-controls>
+
+			<vg-overlay-play></vg-overlay-play>
+
+			<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+		</videogular>
+	</div>
+
+<ion-content class="ion-content-below-my-video">
+
+  <!-- <p class="marquee">Windows 8 and Windows RT are focused on your life—your friends and family 2. Windows 8 and Windows RT are focused on your life—your friends and family</p> -->
+  <div ng-repeat="message in messages"
+           ng-class="{other: message.userId != myId}"
+           class="messages" scroll="true">
+        <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
+          <span>{{ message.text }}</span>
+        </div>
+        <!-- <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div> -->
+    </div>
+
+    <!-- <ion-footer-bar keyboard-attach class="bar-stable item-input-inset"> -->
+     <label class="item-input-wrapper">
+
+       <input type="text" placeholder="Ask a question.." on-return="sendMessage(); closeKeyboard()" ng-change="searchElastic()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+       <button class="button button-bold" ng-click="sendMessage();">Send</button>
+     </label>
+
+     <div class="list">
+       <li class="item" ng-repeat="searchData in searchData" ng-click="searchSelectedItem(searchData)">{{searchData._source.question}}</li>
+     </div>
+
+
+<!-- <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+     <label class="item-input-wrapper">
+       <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+     </label>
+     <button class="button button-clear" ng-click="sendMessage()">
+       Send
+     </button>
+     <div class="list">
+       <li class="item" ng-repeat="searchData in searchData" ng-click="searchSelectedItem(searchData)">{{searchData}}</li>
+     </div>
+   </ion-footer-bar> -->
+  </ion-content>
+   </div>
+</ion-view>

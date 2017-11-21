@@ -1,0 +1,39 @@
+<ion-view title="Settings" id="page4" cache-view="false">
+  <ion-content padding="true" class="has-header">
+    <div id="settings-container2">
+      <h5 id="settings-heading1" style="color:#000000;">APIGEE Settings:</h5>
+      <form id="settings-form6" class="list">
+        <label class="item item-input" id="settings-input11">
+          <span class="input-label">Username</span>
+          <input type="email" placeholder="APIGEE registered email " ng-model="apigeeusername">
+        </label>
+        <label class="item item-input" id="settings-input12">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Sshhh... your password" ng-model="apigeepassword">
+        </label>
+        <label class="item item-input" id="settings-input10">
+          <span class="input-label">Organisation</span>
+          <input type="text" placeholder="Organisation Id" ng-model="apigeeorg">
+        </label>
+      </form>
+    </div>
+    <div id="settings-container3">
+      <h5 id="settings-heading3" style="color:#000000;">WSO2 Settings:</h5>
+      <form id="settings-form8" class="list">
+        <label class="item item-input" id="settings-input13">
+          <span class="input-label">Username</span>
+          <input type="email" placeholder="WSO2 Registered Email " ng-model="wso2username">
+        </label>
+        <label class="item item-input" id="settings-input14">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Sshhh... your password" ng-model="wso2password">
+        </label>
+        <label class="item item-input" id="settings-input15">
+          <span class="input-label">URL</span>
+          <input type="text" placeholder="wso2host:9443/myorg" ng-model="wso2url">
+        </label>
+      </form>
+    </div>
+    <button id="settings-button1" ng-click="saveSettings()" class="button button-positive button-block">Save</button>
+  </ion-content>
+</ion-view>
